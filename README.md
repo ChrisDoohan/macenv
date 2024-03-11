@@ -1,5 +1,5 @@
 # How to Invoke
-From repo root directory, run ./setup.sh. This script is partially interactive and will require the system password a few times.
+From repo root directory, run `./setup.sh`. This script is partially interactive and will require the system password a few times.
 
 This repo should be fully idempotent. Run it whenever you want. Alter it. Run it again.
 
