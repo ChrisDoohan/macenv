@@ -1,0 +1,89 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Christopher Doohan
+	email = chrisdoohan@gmail.com
+
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+    paging=always
+    line-numbers = true
+    syntax-theme = TwoDark
+#     width = 1
+    minus-style = syntax "#450a15"
+    minus-emph-style = syntax "#600818"
+    plus-style = syntax "#0b4820"
+    plus-emph-style = syntax "#175c2e"
+    hunk-header-style = syntax bold
+    hunk-header-decoration-style = pink box
+    file-style = darkblue lightblue bold
+    file-decoration-style = magenta ul
+    line-numbers-zero-style = "#4b5263"
+    line-numbers-left-format = "{nm:^4} "
+    line-numbers-right-format = "{np:^4} "
+
+
+
+[color "diff"]
+    meta = blue black bold
+    frag = magenta 
+
+#Aliasing
+[alias]
+        st = status -s
+[alias]
+        co = checkout
+[alias]
+        d = diff
+[alias]
+        lg = log --oneline --abbrev-commit --all --graph --decorate --color
+[alias]
+        dlc = diff --cached HEAD^
+[alias]
+        la = !git config -l | grep alias | cut -c 7-
+[alias]
+        nuke = !sh -c 'git branch -D $1 && git push origin :$1' -
+[alias]
+	l = log
+[alias]
+        le = log --oneline --decorate
+[alias]
+        graph = log --graph --all --decorate --stat --date=iso
+[alias]
+        lp = log -p
+[alias]
+        ls = log --stat
+[alias]
+	praise = blame
+[alias]
+	recents = for-each-ref --sort=committerdate refs/heads/
+
+
+
+#External difftool config
+[merge]
+        tool = p4merge
+        keepBackup = false
+        conflictstyle = diff3
+
+[mergetool "p4merge"]
+        trustExitCode = false
+        cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+        keepBackup = false
+        keepTemporaries = false
+[mergetool]
+        keepBackup = false
+[diff]
+        tool = p4merge
+        colorMoved = default
+[difftool "p4merge"]
+        cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "$LOCAL" "$REMOTE"
