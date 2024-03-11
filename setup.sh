@@ -38,11 +38,15 @@ source $HOME/.zprofile
 
 ./communication/setup_communication_tools.sh
 
+./github/setup_ssh_keys.sh
+
 ./optional_configuration/configure_finder.sh
 
 ./optional_configuration/configure_keyboard_timings.sh
 
-./github/setup_ssh_keys.sh
+./optional_configuration/install_zsh_plugins.sh
+
+./optional_configuration/symlink_zsh_dotfiles.sh
 
 # The job is done. It's all jokes from here on out
 MEME_DIR="./memes"

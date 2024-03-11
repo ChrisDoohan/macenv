@@ -3,18 +3,18 @@ set -e
 source ./shared/common_functions.sh
 
 install_nerd_fonts() {
-    log_initialize "Installing RobotoMono Nerd Font family..."
-
-    # Correctly defined Font download URLs as array elements
+    # The first two of these are for use in vs code. The rest are for p10k
     declare -a font_urls=(
         "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Medium/RobotoMonoNerdFontMono-Medium.ttf"
         "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Medium-Italic/RobotoMonoNerdFontMono-MediumItalic.ttf"
+        "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf"
+        "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf"
+        "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf"
+        "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf"
     )
 
-    # Directory where the fonts will be installed
+    # User directory to store the fonts
     font_dir="$HOME/Library/Fonts"
-
-    # Ensuring the font directory exists
     mkdir -p "$font_dir"
 
     # Download and install each font
@@ -38,8 +38,6 @@ install_nerd_fonts() {
             return 1
         fi
     done
-
-    log_success "RobotoMono Nerd Fonts installation completed."
 }
 
 log_initialize "INSTALLING FONTS..."

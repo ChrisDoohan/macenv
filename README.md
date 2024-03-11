@@ -14,6 +14,7 @@ A lof of the installed applications will need to be granted permissions the firs
   - Swap the hotkeys to Spectacle defaults
   - Enable "Launch on login"
 - Open Karabiner Elements, and add the Right CMD -> ESC keybind
+- Launch KeepingYouAwake, and select "Start at Login"
 - WRT Firefox
   - Make it the default browser
   - Install uBlock Origin extension
@@ -25,7 +26,9 @@ A lof of the installed applications will need to be granted permissions the firs
 - WRT Alfred
   - Activate it using purchased license
   - Restore saved Alfred config using jank directory method
+- Open iTerm2 > Settings > Profiles > Text and set Font to MesloLGS NF.
 - WRT Finder
   - Add user home to sidebar pane favorites (you don't want to know why this can't be automated)
   - Create `screenshots` directory, add it to sidebar pane favorites, and set it as the default screenshot location
-
+- Turn off "Correct spelling automatically" and "Capitalize words automatically" in System Preferences > Keyboard > Text Input > Input Sources. Turn off smart quotes and double-space -> period in the same place.
+- After GitHub is configured, turn on Settings Sync in VS Code and sign in, to pull settings
