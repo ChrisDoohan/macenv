@@ -32,7 +32,7 @@ source $HOME/.zprofile
 # the scripts break.
 ./shell__unconfigged/install_shell_tooling.sh
 
-./keyboard_and_productivity/setup_keyboard_and_productivity_tools.sh
+./productivity/setup_productivity_tools.sh
 
 ./development_tools/setup_development_tools.sh
 

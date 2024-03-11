@@ -54,7 +54,7 @@ install_alfred_4() {
     log_success "Alfred 4 installation completed."
 }
 
-log_initialize "INSTALLING KEYBOARD TOOLS AND PRODUCTIVITY TOOLS..."
+log_initialize "INSTALLING PRODUCTIVITY TOOLS..."
 
 brew_install_casks rectangle karabiner-elements keepingyouawake
 
@@ -62,4 +62,4 @@ brew_install_casks rectangle karabiner-elements keepingyouawake
 # swap this under brew's domain once I have purchased the newer license
 install_alfred_4
 
-log_success "KEYBOARD TOOLS AND PRODUCTIVITY TOOLS INSTALLED."
+log_success "PRODUCTIVITY TOOLS INSTALLED."
