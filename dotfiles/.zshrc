@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git colored-man-pages zsh-autosuggestions)  # zsh-syntax-highlighting is not to be referenced here, if installed via brew
 
 # The next variable has to be set in order to prevent zsh from doing weird escape
 # character stuff on paste
@@ -123,7 +123,7 @@ function fixdate() {
 create() { mkdir -p "$(dirname "$1")" && touch "$1" ; }
 
 # ALIASES
-alias cz="vi ~/.zshrc"
+alias cz="code ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias clip="pbcopy"
 alias dc="docker-compose"
@@ -147,3 +147,7 @@ alias tf="terraform"
 alias black="pre-commit run black --files"
 alias pre="pre-commit run --files"
 alias ipy="ipython"
+
+
+# Necessary for zsh syntax highlighting (plugin controlled by brew)
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
