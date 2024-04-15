@@ -148,6 +148,9 @@ alias black="pre-commit run black --files"
 alias pre="pre-commit run --files"
 alias ipy="ipython"
 
+# Set up qr code alias to dump contents of clip board to qr code and display it
+alias qr="pbpaste | qrencode -o - -t UTF8"
+
 
 # Necessary for zsh syntax highlighting (plugin controlled by brew)
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
