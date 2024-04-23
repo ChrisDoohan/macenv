@@ -75,3 +75,6 @@ A lof of the installed applications will need to be granted permissions the firs
   - Create `screenshots` directory, add it to sidebar pane favorites, and set it as the default screenshot location
 - Turn off "Correct spelling automatically" and "Capitalize words automatically" in System Preferences > Keyboard > Text Input > Input Sources. Turn off smart quotes and double-space -> period in the same place.
 - After GitHub is configured, turn on Settings Sync in VS Code and sign in, to pull settings
+
+# Todo
+- [ ] Add scratch directory and put it in the sidebar
