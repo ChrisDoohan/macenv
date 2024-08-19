@@ -4,7 +4,6 @@ source ./shared/common_functions.sh
 
 install_homebrew() {
     log_initialize "Ensuring Homebrew installation"
-    source /Users/chris/.zprofile
     if command -v brew >/dev/null 2>&1; then
         log_success "Homebrew is already installed."
     else

@@ -1,5 +1,5 @@
 # How to Invoke
-From repo root directory, run `./setup.sh`. This script is partially interactive and will require the system password a few times.
+From repo root directory, run `./setup.sh`. This script is partially interactive and will require the system password a few times. When Zsh is installed, it will automatically launch into a new shell and interrupt the script. Simply Ctrl+D out of it to resume the setup script.
 
 This repo should be fully idempotent. Run it whenever you want. Alter it. Run it again.
 
@@ -68,13 +68,19 @@ A lof of the installed applications will need to be granted permissions the firs
   - Remove genie animation
 - WRT Alfred
   - Activate it using purchased license
+  - Go into the Spotlight settings and unbind Cmd+Space. Rebind in Alfred
   - Restore saved Alfred config using jank directory method
 - Open iTerm2 > Settings > Profiles > Text and set Font to MesloLGS NF.
 - WRT Finder
   - Add user home to sidebar pane favorites (you don't want to know why this can't be automated)
   - Create `screenshots` directory, add it to sidebar pane favorites, and set it as the default screenshot location
-- Turn off "Correct spelling automatically" and "Capitalize words automatically" in System Preferences > Keyboard > Text Input > Input Sources. Turn off smart quotes and double-space -> period in the same place.
+- Turn off "Correct spelling automatically" and "Capitalize words automatically" in System Preferences > Keyboard > Text Input > Input Sources > Edit. Turn off smart quotes and double-space -> period in the same place.
 - After GitHub is configured, turn on Settings Sync in VS Code and sign in, to pull settings
+- Obsidian
+  - Download the app from https://obsidian.md/download
+  - Sign in, to start sync
+  - Enter decryption key, from "Obsidian e2e encryption password" in Bitwarden
 
 # Todo
 - [ ] Add scratch directory and put it in the sidebar
+- [ ] Automate the Obsidian setup

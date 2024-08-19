@@ -56,7 +56,9 @@ install_alfred_4() {
 
 log_initialize "INSTALLING PRODUCTIVITY TOOLS..."
 
-brew_install_casks rectangle karabiner-elements keepingyouawake qrencode
+brew_install_packages qrencode
+
+brew_install_casks rectangle karabiner-elements keepingyouawake
 
 # Alfred 4 can not be managed using brew casks -- only Alfred 5 can, so I will
 # swap this under brew's domain once I have purchased the newer license
