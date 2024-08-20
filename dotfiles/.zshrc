@@ -157,3 +157,13 @@ alias qr="pbpaste | qrencode -o - -t UTF8"
 
 # Necessary for zsh syntax highlighting (plugin controlled by brew)
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Init rbenv
+eval "$(rbenv init - zsh)"
+
+# Init nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+ssh-add -l > /dev/null 2>&1 || echo "You need to run ssh-add"
