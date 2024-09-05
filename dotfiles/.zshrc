@@ -125,6 +125,9 @@ function fixdate() {
 # I'm tired of having to 'mkdir' before 'touch'
 create() { mkdir -p "$(dirname "$1")" && touch "$1" ; }
 
+# I sometimes need to be able to prevent commands from being stored in history
+setopt HIST_IGNORE_SPACE
+
 # ALIASES
 alias cz="code ~/.zshrc"
 alias sz="source ~/.zshrc"
@@ -167,3 +170,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 ssh-add -l > /dev/null 2>&1 || echo "You need to run ssh-add"
+
+alias serv='bin/rails s'
+alias test='bin/rails spec'
+alias brc='bin/rails console'

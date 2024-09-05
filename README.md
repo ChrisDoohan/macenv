@@ -84,3 +84,4 @@ A lof of the installed applications will need to be granted permissions the firs
 # Todo
 - [ ] Add scratch directory and put it in the sidebar
 - [ ] Automate the Obsidian setup
+- [ ] Make sure zsh tab complete is optimal
