@@ -128,6 +128,9 @@ create() { mkdir -p "$(dirname "$1")" && touch "$1" ; }
 # I sometimes need to be able to prevent commands from being stored in history
 setopt HIST_IGNORE_SPACE
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # ALIASES
 alias cz="code ~/.zshrc"
 alias sz="source ~/.zshrc"

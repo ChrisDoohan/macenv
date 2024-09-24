@@ -31,7 +31,7 @@ install_homebrew
 # Get access to Homebrew via `brew`
 source $HOME/.zprofile
 
-brew_install_packages wget git-delta trash
+brew_install_packages wget git-delta trash fzf
 
 symlink_git_config
 
