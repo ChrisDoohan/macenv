@@ -140,6 +140,8 @@ alias dc="docker-compose"
 alias mybranches="git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n | grep Doohan | grep remote"
 
 alias today="date +'%Y_%m_%d'"
+# Get the current time
+alias now="date +'%T'"
 
 alias ls="lsd"
 # Directories only
@@ -177,3 +179,6 @@ ssh-add -l > /dev/null 2>&1 || echo "You need to run ssh-add"
 alias serv='bin/rails s'
 alias test='bin/rails spec'
 alias brc='bin/rails console'
+
+# Copy active branch name
+alias cb='git branch --show-current | tr -d "\n" | pbcopy'
