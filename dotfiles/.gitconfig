@@ -18,7 +18,7 @@
     paging=always
     line-numbers = true
     syntax-theme = TwoDark
-#     width = 1
+#    width = 1
     minus-style = syntax "#450a15"
     minus-emph-style = syntax "#600818"
     plus-style = syntax "#0b4820"

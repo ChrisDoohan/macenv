@@ -81,6 +81,7 @@ A lof of the installed applications will need to be granted permissions the firs
   - Sign in, to start sync
   - Enter decryption key, from "Obsidian e2e encryption password" in Bitwarden
 - If using a mouse, you may need to go into the settings and choose "advanced", to disable mouse acceleration, which for some reason makes the mouse go way faster.
+- Get some colors for iTerm -- I've been liking catpuccin-machiato
 
 # Todo
 - [ ] Add scratch directory and put it in the sidebar

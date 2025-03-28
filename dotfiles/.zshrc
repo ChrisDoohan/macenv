@@ -174,11 +174,64 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-ssh-add -l > /dev/null 2>&1 || echo "You need to run ssh-add"
+ssh-add -l > /dev/null 2>&1 || echo "CGD: You need to run ssh-add"
 
 alias serv='bin/rails s'
+alias qserv='SUPPRESS_AR_LOGS=true bin/rails s'
 alias test='bin/rails spec'
 alias brc='bin/rails console'
 
 # Copy active branch name
 alias cb='git branch --show-current | tr -d "\n" | pbcopy'
+alias gpom='git pull origin master'
+
+
+
+# Functions
+serverless() {
+  if [ -f "tmp/pids/server.pid" ]; then
+    kill -9 "$(cat tmp/pids/server.pid | tr -d '%')"
+  else
+    echo "Server PID file not found."
+  fi
+}
+
+tarnish() {
+  echo "Searching for chromedriver processes..."
+  pids=$(pgrep -f chromedriver)
+
+  if [ -z "$pids" ]; then
+    echo "No chromedriver processes found."
+  else
+    echo "Found chromedriver processes with PIDs: $pids"
+    echo "Killing chromedriver processes..."
+    pkill -f chromedriver
+    echo "All chromedriver processes terminated."
+  fi
+
+  echo "Searching for Google Chrome processes..."
+  pids=$(pgrep -f Google Chrome)
+
+  if [ -z "$pids" ]; then
+    echo "No Google Chrome processes found."
+  else
+    echo "Found Google Chrome processes with PIDs: $pids"
+    echo "Killing Google Chrome processes..."
+    pkill -f "Google Chrome"
+    echo "All Google Chrome processes terminated."
+  fi
+}
+
+# Necessary to prevent me from running out of sockets while running the canopy tests
+ulimit -S -n 4096
+ulimit -H -n 4096
+
+ws() {
+  wormhole send "$1" 2>&1 | tee >(
+    grep --line-buffered "wormhole receive" | {
+      head -n1 | tr -d '\n' | pbcopy
+      # Continue reading the rest so the pipe isn’t closed early.
+      cat > /dev/null
+    }
+  )
+}
