@@ -16,13 +16,13 @@ log_failure() {
 symlink_config() {
     local source_file="$1"
     local target_file="$2"
-    
+
     # Check if the source file exists
     if [ ! -f "$source_file" ]; then
         echo "Error: Source file does not exist: $source_file"
         return 1 # Exit the function with an error status
     fi
-    
+
     if [ -f "$target_file" ] && [ ! -L "$target_file" ]; then
         echo "Backing up existing file: $(basename "$target_file")."
         mv "$target_file" "${target_file}.backup"

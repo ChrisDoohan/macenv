@@ -87,3 +87,4 @@ A lof of the installed applications will need to be granted permissions the firs
 - [ ] Add scratch directory and put it in the sidebar
 - [ ] Automate the Obsidian setup
 - [ ] Make sure zsh tab complete is optimal
+- [ ] Verify that the dotfile management works correctly for `karabiner.json`, which is nested a few directories deep

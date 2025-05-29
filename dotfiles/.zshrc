@@ -185,7 +185,10 @@ alias brc='bin/rails console'
 alias cb='git branch --show-current | tr -d "\n" | pbcopy'
 alias gpom='git pull origin master'
 
+alias web='cd ~/web'
+alias dl='cd ~/Downloads'
 
+alias branch='git checkout $(git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)" | fzf)'
 
 # Functions
 serverless() {
@@ -235,3 +238,18 @@ ws() {
     }
   )
 }
+
+# c() {
+#   # Read all input
+#   input=$(cat)
+  
+#   # Copy to clipboard
+#   echo "$input" | pbcopy
+  
+#   # Pass through to stdout
+#   echo "$input"
+# }
+
+CDPATH="$HOME:$CDPATH"
+
+export RSPEC_RETRY_COUNT=0
