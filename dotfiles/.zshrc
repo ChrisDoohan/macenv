@@ -174,13 +174,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-ssh-add -l > /dev/null 2>&1 || echo "CGD: You need to run ssh-add"
-
-alias serv='bin/rails s'
-alias qserv='SUPPRESS_AR_LOGS=true bin/rails s'
-alias test='bin/rails spec'
-alias brc='bin/rails console'
-
 # Copy active branch name
 alias cb='git branch --show-current | tr -d "\n" | pbcopy'
 alias gpom='git pull origin master'
@@ -200,29 +193,20 @@ serverless() {
 }
 
 tarnish() {
-  echo "Searching for chromedriver processes..."
-  pids=$(pgrep -f chromedriver)
+  local targets=("chromedriver" "Google Chrome" "Chromium" "chrome_crashpad_handler")
 
-  if [ -z "$pids" ]; then
-    echo "No chromedriver processes found."
-  else
-    echo "Found chromedriver processes with PIDs: $pids"
-    echo "Killing chromedriver processes..."
-    pkill -f chromedriver
-    echo "All chromedriver processes terminated."
-  fi
+  for target in "${targets[@]}"; do
+    local pids
+    pids=$(pgrep -fi "$target" 2>/dev/null)
 
-  echo "Searching for Google Chrome processes..."
-  pids=$(pgrep -f Google Chrome)
-
-  if [ -z "$pids" ]; then
-    echo "No Google Chrome processes found."
-  else
-    echo "Found Google Chrome processes with PIDs: $pids"
-    echo "Killing Google Chrome processes..."
-    pkill -f "Google Chrome"
-    echo "All Google Chrome processes terminated."
-  fi
+    if [[ -z "$pids" ]]; then
+      echo "No processes found matching: $target"
+    else
+      echo "Killing processes matching '$target' (PIDs: $(echo $pids | tr '\n' ' '))..."
+      pkill -9 -fi "$target"
+      echo "Done."
+    fi
+  done
 }
 
 # Necessary to prevent me from running out of sockets while running the canopy tests
@@ -239,17 +223,28 @@ ws() {
   )
 }
 
-# c() {
-#   # Read all input
-#   input=$(cat)
-  
-#   # Copy to clipboard
-#   echo "$input" | pbcopy
-  
-#   # Pass through to stdout
-#   echo "$input"
-# }
+ssh-add -l > /dev/null 2>&1 || echo "CGD: You need to run ssh-add"
 
-CDPATH="$HOME:$CDPATH"
+
+# Rails convenience stuff
+alias quietly='SUPPRESS_AR_LOGS=true'
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+alias serv='OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES bin/rails s'
+alias brc='bin/rails console'
 
 export RSPEC_RETRY_COUNT=0
+
+alias give_backup="export AWS_PROFILE=DBBackupFolderRead-632380152743"
+alias rr="bin/rspec"
+alias rrr="rspec --exclude-pattern 'spec/features/**/*_spec.rb'"
+
+alias dbs="rails db:migrate:status"
+alias dbm="rails db:migrate"
+alias dbr="rails db:rollback"
+
+alias stag="heroku run -s performance-l rails console --app canopy-staging"
+alias prod="heroku run -s performance-l rails console --app canopy-development"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+[[ -f ~/.secrets.local ]] && source ~/.secrets.local
