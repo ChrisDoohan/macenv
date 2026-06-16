@@ -247,4 +247,6 @@ alias prod="heroku run -s performance-l rails console --app canopy-development"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-[[ -f ~/.secrets.local ]] && source ~/.secrets.local
+
+
+[[ -f ~/macenv/dotfiles/.secrets.local ]] && source ~/macenv/dotfiles/.secrets.local
