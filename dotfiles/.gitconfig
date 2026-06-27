@@ -31,11 +31,10 @@
     line-numbers-left-format = "{nm:^4} "
     line-numbers-right-format = "{np:^4} "
 
-
-
 [color "diff"]
     meta = blue black bold
-    frag = magenta 
+    frag = magenta
+    commit = blue bold
 
 #Aliasing
 [alias]
