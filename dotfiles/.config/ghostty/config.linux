@@ -1,0 +1,10 @@
+# Linux Ghostty config.
+# On Linux, symlink ~/.config/ghostty/config -> this file.
+config-file = ~/macenv/dotfiles/.config/ghostty/config.shared
+
+# Per-machine: apparent font size differs from macOS due to display scaling
+font-size = 12
+font-family = RobotoMono Nerd Font Mono Md
+
+# ctrl+v paste (Linux convention; macOS uses cmd+v natively)
+keybind = ctrl+v=paste_from_clipboard

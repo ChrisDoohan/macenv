@@ -1,0 +1,7 @@
+# macOS Ghostty config.
+# On the Mac, symlink ~/.config/ghostty/config -> this file.
+config-file = ~/macenv/dotfiles/.config/ghostty/config.shared
+
+# Per-machine: apparent font size differs from Linux due to HiDPI/Retina scaling
+font-size = 16
+font-family = MesloLGS NF
